@@ -1,0 +1,10 @@
+.init {
+    width: 100%;
+    height: 200px;
+    &.dark {
+        background-color: #ff00ff;
+    }
+    &.light {
+        background-color: #ffff00;
+    }
+}
