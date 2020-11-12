@@ -12,7 +12,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <ContextHook/>
-      <Store.Provider value="测试专用">
+      <Store.Provider value="测试专用123">
         <ShowPage/>
       </Store.Provider>
     </div>

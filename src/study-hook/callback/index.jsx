@@ -40,7 +40,7 @@ function Page2 (props) {
     function timeFormate (date) {
         return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
     }
-    const date = new Date();
+    let date = new Date();
     const initTime = timeFormate(date);
     const [currentTime, setTime] = useState(initTime);
     // const callBackTime = useCallback(() => {
@@ -54,15 +54,28 @@ function Page2 (props) {
         // callBackTime();
         setInterval(() => {
             const date = new Date();
-            setTime(timeFormate(date))
+            setTime(timeFormate(date));
         }, 1000)
     })
     const callBack = useCallback(() => {
-        return setNum(num - 1)
+        setNum(num - 1)
     }, [num]);
+    // const timeShow = useMemo(() => timeFormate(date), [date]) 
+    const memoNum = useMemo(() => {
+        return function () {
+            let a = num * (Math.random() * 10).toFixed(0) * Math.PI.toFixed(2);
+            return a
+        } ()
+    }, [num]);
+    const callback1 = useCallback(() => {
+        setNum(memoNum)
+    }, [memoNum])
     return (
         <div>
             <button onClick={callBack}>add</button>
+            <div>
+                <button onClick={callback1}>计算</button>
+            </div>
             <div>{num}</div>
             <div>{currentTime}</div>
         </div>
