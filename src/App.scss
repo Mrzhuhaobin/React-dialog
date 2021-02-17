@@ -20,6 +20,12 @@
     position: sticky;
     top: 0;
     left: 0;
+    .active {
+      color: red;
+      a {
+        font-weight: bold;
+      }
+    }
     a {
       color: inherit;
     }
